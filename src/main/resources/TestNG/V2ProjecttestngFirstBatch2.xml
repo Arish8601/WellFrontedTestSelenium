@@ -1,0 +1,39 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+
+<suite name="V2Project-Module">
+
+ <parameter name="browserName" value="chrome"/>
+<parameter name="environment" value="TEST"/>
+<parameter name="moduleName" value="V2"/>
+<parameter name="videoRecording" value="true"/>
+
+ <test name="WELL-V1-V1-CoreProject-SectorDiscount-Single Asset" >
+<parameter name="SheetName" value="V2Project"/>
+<parameter name="rowNum" value="13"/>
+<parameter name="Type" value="WELLCertification"/>
+<parameter name="Country" value="US"/>
+<parameter name="Discount" value="SectorDiscount"/>
+<parameter name="is_Leed" value="false"/>
+<parameter name="ProjectType" value="v1"/>
+<parameter name="API" value="false"/>
+<parameter name="Upload" value="false"/>
+<parameter name="Commodity" value="SingleAsset"/>
+<parameter name="ProjectStandard" value="retail"/>
+<parameter name="ProjectName" value="AutomationV1ToV1ProjectRecertification"/>
+
+<classes>
+<class name="com.Well.testcases.login.TC_01_LoginTest"></class>
+<class name="com.Well.testcases.V2Project.V1_TC_32_RegisterV1ProjectTest"></class>
+<class name="com.Well.testcases.V2Project.V1_TC_36_AgreementV1ProjectTest"></class>
+<class name="com.Well.testcases.V2Project.V1_TC_37_SearchV2ProjectByIdTest"></class>
+<class name="com.Well.testcases.V2Project.V1_TC_38_DocumentV1ProjectTest"></class>
+<class name="com.Well.testcases.V2Project.V1_TC_39_EquityV1ProjectTest"></class>
+<class name="com.Well.testcases.V2Project.V1_TC_40_ReviewV1ProjectTest"></class>
+<class name="com.Well.testcases.V2Project.V1_TC_41_EquityAchievementTest"></class>
+<class name="com.Well.testcases.V2Project.V1_TC_42_V1ProjectRecertificationTest"></class>
+<class name="com.Well.testcases.V2Project.V2_TC_Batch1_ErrorNegativeAssertTest"></class> 
+<class name="com.Well.testcases.V2Project.V2_TC_Batch1_FieldNegativeAssertTest"></class>
+</classes>  
+</test>  
+</suite> 
