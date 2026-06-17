@@ -36,6 +36,8 @@ import org.testng.asserts.SoftAssert;
 import org.zaproxy.clientapi.core.ApiResponse;
 import org.zaproxy.clientapi.core.ClientApi;
 import org.zaproxy.clientapi.core.ClientApiException;
+
+import com.Well.ReusableMethods.ArishReusableMethods;
 import com.Well.ReusableMethods.ReusableMethodCommon;
 import com.Well.ReusableMethods.ReusableMethodCommonAPI;
 import com.Well.ReusableMethods.ReusableMethodEquity;
@@ -67,7 +69,7 @@ import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.Screenshot;
 import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 
-public class BaseClass {
+public class ArishBaseClass {
 
 	public static String BrowserName;
 	public static String Environment;
@@ -171,6 +173,7 @@ public class BaseClass {
 			+ File.separator + "main" + File.separator + "resources" + File.separator + "Files" + File.separator
 			+ "ImportReviewUpload.xlsx";
 	public static String OS = System.getProperty("os.name");
+	public static ArishReusableMethods arishLogin = new ArishReusableMethods();
 	public static ReusableMethodsLogin login = new ReusableMethodsLogin();
 	public static ReusableMethodsPortfolio portfolio = new ReusableMethodsPortfolio();
 	public static ReusableMethodsCustomPortfolio pf = new ReusableMethodsCustomPortfolio();
@@ -262,12 +265,13 @@ public class BaseClass {
 		else if (browserName.equalsIgnoreCase("chrome") && SecurtiyTest.equalsIgnoreCase("false")) {
 			SecurityAssesment = "false";
 			ChromeOptions options = new ChromeOptions();
-			if (OS.contains("Window")) {
+			if (OS.contains("Windows")) {
 				FileUtils.cleanDirectory(new File(downloadPath));
 				FileUtils.cleanDirectory(new File(TestRecordingdownloadPath));
 				FileUtils.cleanDirectory(new File(ScreenshotsPath));
-			WebDriverManager.chromedriver().driverVersion("147.0.7727.57").setup();
-			WebDriverManager.chromedriver().browserVersion("147.0.7727.57").setup();
+			WebDriverManager.chromedriver().setup();
+			//WebDriverManager.chromedriver().driverVersion("132").setup();
+			//WebDriverManager.chromedriver().browserVersion("132").setup();
 
 			} else {
 			WebDriverManager.chromedriver().clearDriverCache().driverVersion("147.0.7727.57").setup();

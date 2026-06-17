@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="WELL-Exam-Module">
+
+    <parameter name="browserName" value="chrome"/>
+    <parameter name="environment" value="TEST"/>
+    <parameter name="moduleName" value="Common"/>
+    <parameter name="SecurtiyTest" value="false"/>
+    <parameter name="videoRecording" value="false"/>
+
+    <test name="WELL-AP">
+        <parameter name="SheetName" value="Exam"/>
+        
+        <parameter name="rowNum" value="2"/>
+
+        <classes>
+           <class name="Arish.com.Well.testcases.rahulshettyacademy.com.Arish_TC_01_LoginTest"/>
+           <class name="Arish.com.Well.testcases.rahulshettyacademy.com.Arish_TC_02_EndToEndTestCase"/>
+           <class name="Arish.com.Well.testcases.rahulshettyacademy.com.Arish_TC_03_PlaceOrderOfAboveHunderedRupees"/>
+        </classes>
+      </test>
+      
+</suite>

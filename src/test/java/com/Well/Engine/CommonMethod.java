@@ -49,6 +49,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WindowType;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.locators.RelativeLocator;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -64,7 +65,7 @@ import com.itextpdf.text.pdf.parser.SimpleTextExtractionStrategy;
 import com.itextpdf.text.pdf.parser.TextExtractionStrategy;
 
 
-public class CommonMethod extends BaseClass {
+public class CommonMethod extends ArishBaseClass {
 
 	static Format formatter = new SimpleDateFormat("YYYY-MM-dd");
 	static Date date = new Date();
@@ -725,6 +726,12 @@ public class CommonMethod extends BaseClass {
 		}
 
 		driver.switchTo().window(tabs.get(1));
+	}
+	
+	public static void openNewTab(String URL) {
+
+	    driver.switchTo().newWindow(WindowType.TAB);
+	    driver.get(URL);
 	}
 
 	public static void checkTextFieldIsNotEmpty(String objectLocator, String Message) throws IOException {

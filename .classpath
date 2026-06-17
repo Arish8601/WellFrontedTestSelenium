@@ -36,5 +36,8 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
+	<classpathentry kind="src" path="/SeleniumFrameworkDesignRahul"/>
+	<classpathentry kind="src" path="/SeleniumJavaRestAsurredFrameDesign"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
