@@ -1,0 +1,34 @@
+package Arish.com.Well.testcases.rahulshettyacademy.com;
+
+	import java.io.IOException;
+
+	import org.testng.annotations.Parameters;
+	import org.testng.annotations.Test;
+
+	import com.Well.Engine.ArishBaseClass;
+
+	public class Arish_TC_04_PlaceOrderOfLastTwoProducts  extends ArishBaseClass {
+		
+		@Test(dependsOnMethods = {"Arish.com.Well.testcases.rahulshettyacademy.com.Arish_TC_03_PlaceOrderOfAboveHunderedRupees.Arish_TC_03_PlaceOrderOfAboveHunderedRupeesFunction"})
+		@Parameters({ "SheetName","rowNum" })
+		public void Arish_TC_04_PlaceOrderOfLastTwoProductsFunction(String SheetName,int rowNum) throws IOException {
+
+			TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
+
+			StartTest(TestCaseName,"PlaceOrderOfLastTwoProductsFunction");
+
+			try {
+				arishLogin.placeOrderOfLastTwoProducts();	
+				
+			} catch (Throwable t) {
+				System.out.println(t.getLocalizedMessage());
+				Error e1 = new Error(t.getMessage());
+				e1.setStackTrace(t.getStackTrace());
+				throw e1;
+			}
+		}
+	}
+
+
+
+	

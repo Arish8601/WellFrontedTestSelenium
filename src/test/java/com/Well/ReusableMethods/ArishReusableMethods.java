@@ -81,6 +81,7 @@ public class ArishReusableMethods extends ArishBaseClass {
 	    CommonMethod.assertActualContainsExpected(actualText, expectedText);
 	}
 	
+	
 	public void placeOrderOfAboveHunderedRupees() throws IOException, InterruptedException, ClientApiException {
 
 	    System.out.println("placeOrderOfAboveHunderedRupees");
@@ -142,5 +143,139 @@ public class ArishReusableMethods extends ArishBaseClass {
 	    String expectedText = "your order has been placed successfully".toLowerCase();
 	    CommonMethod.assertActualContainsExpected(actualText, expectedText);
 	}
+
+
+
+public void placeOrderOfLastTwoProducts() throws IOException, InterruptedException, ClientApiException {
+
+    System.out.println("placeOrderOfLastTwoProducts");
+    
+    CommonMethod.openNewTab("https://rahulshettyacademy.com/seleniumPractise/#/");
+    // Get all products
+    CommonMethod.WaitUntilNumberOfElementToBePresentMoreThan("ArishGetAllProductsPrice", 0);
+    List<WebElement> products = CommonMethod.findElements("ArishGetAllProductsPrice");
+    List<WebElement> addToCartBtn = CommonMethod.findElements("ArishGetAllProductsAddToCartButton");
+    
+    int amt = 75;
+
+    for (int i=0; i<products.size(); i++) {
+
+        String productName = products.get(i).getText();
+        int p = Integer.parseInt(productName.replaceAll("₹", ""));
+
+        if (p == amt) {
+
+            addToCartBtn.get(i).click();
+
+            System.out.println(p + " added to cart");
+           
+        } 
+    }
+    
+    // Open Cart
+    CommonMethod.WaitUntilNumberOfElementToBePresentMoreThan("ArishOpenCart", 0);
+    CommonMethod.click("ArishOpenCart");
+    Thread.sleep(10000);
+
+    // Checkout
+    CommonMethod.WaitUntilNumberOfElementToBePresentMoreThan("ArishCartCheckOut", 0);
+    CommonMethod.click("ArishCartCheckOut");
+
+    // Apply Promo
+    CommonMethod.WaitUntilNumberOfElementToBePresentMoreThan("ArishAddPromoCode", 0);
+    CommonMethod.sendKeys("ArishAddPromoCode", "rahulshettyacademy");
+
+    CommonMethod.WaitUntilNumberOfElementToBePresentMoreThan("ArishClickPromoCodeApplyBtn", 0);
+    CommonMethod.click("ArishClickPromoCodeApplyBtn");
+
+    // Place Order
+    CommonMethod.WaitUntilNumberOfElementToBePresentMoreThan("ArishClickPlaceOrderBtn", 0);
+    CommonMethod.click("ArishClickPlaceOrderBtn");
+
+    // Select Country
+    CommonMethod.WaitUntilNumberOfElementToBePresentMoreThan("ArishSelectCountry", 0);
+    CommonMethod.selectdropdownValue("ArishSelectCountry", "India");
+
+    // Agree Checkbox
+    CommonMethod.WaitUntilNumberOfElementToBePresentMoreThan("ArishAgreeCheckBox", 0);
+    CommonMethod.click("ArishAgreeCheckBox");
+
+    // Proceed
+    CommonMethod.WaitUntilNumberOfElementToBePresentMoreThan("ArishClickProceedBtn", 0);
+    CommonMethod.click("ArishClickProceedBtn");
+    
+    CommonMethod.WaitUntilNumberOfElementToBePresentMoreThan("ArishSuccessfulMsg", 0);
+    String actualText = CommonMethod.getText("ArishSuccessfulMsg").toLowerCase();
+    System.out.println("Actual Text: "+actualText);
+    String expectedText = "your order has been placed successfully".toLowerCase();
+    CommonMethod.assertActualContainsExpected(actualText, expectedText);
 }
 
+
+
+public void placeOrderWhosePriceExactSeventyFive() throws IOException, InterruptedException, ClientApiException {
+
+    System.out.println("placeOrderWhosePriceExactSeventyFive");
+    
+    CommonMethod.openNewTab("https://rahulshettyacademy.com/seleniumPractise/#/");
+    // Get all products
+    CommonMethod.WaitUntilNumberOfElementToBePresentMoreThan("ArishGetAllProductsPrice", 0);
+    List<WebElement> products = CommonMethod.findElements("ArishGetAllProductsPrice");
+    List<WebElement> addToCartBtn = CommonMethod.findElements("ArishGetAllProductsAddToCartButton");
+    int c = 0;
+
+    for (int i = products.size() - 1; i >= 0; i--) {
+
+        String productName = products.get(i).getText();
+
+        if (c < 2) {
+
+            addToCartBtn.get(i).click();
+
+            System.out.println(productName + " added to cart");
+
+            c++;
+        } 
+        else {
+            break;
+        }
+    }
+    // Open Cart
+    CommonMethod.WaitUntilNumberOfElementToBePresentMoreThan("ArishOpenCart", 0);
+    CommonMethod.click("ArishOpenCart");
+    Thread.sleep(10000);
+
+    // Checkout
+    CommonMethod.WaitUntilNumberOfElementToBePresentMoreThan("ArishCartCheckOut", 0);
+    CommonMethod.click("ArishCartCheckOut");
+
+    // Apply Promo
+    CommonMethod.WaitUntilNumberOfElementToBePresentMoreThan("ArishAddPromoCode", 0);
+    CommonMethod.sendKeys("ArishAddPromoCode", "rahulshettyacademy");
+
+    CommonMethod.WaitUntilNumberOfElementToBePresentMoreThan("ArishClickPromoCodeApplyBtn", 0);
+    CommonMethod.click("ArishClickPromoCodeApplyBtn");
+
+    // Place Order
+    CommonMethod.WaitUntilNumberOfElementToBePresentMoreThan("ArishClickPlaceOrderBtn", 0);
+    CommonMethod.click("ArishClickPlaceOrderBtn");
+
+    // Select Country
+    CommonMethod.WaitUntilNumberOfElementToBePresentMoreThan("ArishSelectCountry", 0);
+    CommonMethod.selectdropdownValue("ArishSelectCountry", "India");
+
+    // Agree Checkbox
+    CommonMethod.WaitUntilNumberOfElementToBePresentMoreThan("ArishAgreeCheckBox", 0);
+    CommonMethod.click("ArishAgreeCheckBox");
+
+    // Proceed
+    CommonMethod.WaitUntilNumberOfElementToBePresentMoreThan("ArishClickProceedBtn", 0);
+    CommonMethod.click("ArishClickProceedBtn");
+    
+    CommonMethod.WaitUntilNumberOfElementToBePresentMoreThan("ArishSuccessfulMsg", 0);
+    String actualText = CommonMethod.getText("ArishSuccessfulMsg").toLowerCase();
+    System.out.println("Actual Text: "+actualText);
+    String expectedText = "your order has been placed successfully".toLowerCase();
+    CommonMethod.assertActualContainsExpected(actualText, expectedText);
+}
+}

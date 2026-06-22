@@ -16,6 +16,8 @@
            <class name="Arish.com.Well.testcases.rahulshettyacademy.com.Arish_TC_01_LoginTest"/>
            <class name="Arish.com.Well.testcases.rahulshettyacademy.com.Arish_TC_02_EndToEndTestCase"/>
            <class name="Arish.com.Well.testcases.rahulshettyacademy.com.Arish_TC_03_PlaceOrderOfAboveHunderedRupees"/>
+           <class name="Arish.com.Well.testcases.rahulshettyacademy.com.Arish_TC_04_PlaceOrderOfLastTwoProducts"/>
+           <class name="Arish.com.Well.testcases.rahulshettyacademy.com.Arish_TC_05_PlaceOrderWhosePriceExactSeventyFive"/>
         </classes>
       </test>
       
